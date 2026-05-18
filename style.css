@@ -1,0 +1,14 @@
+/* Uniplays Style Guide v1 */
+:root {
+    --primary-red: #ff0000;
+    --dark-bg: #000000;
+    --accent-zinc: #18181b;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: white;
+}
+
+.text-red-primary { color: var(--primary-red); }
+.bg-red-primary { background-color: var(--primary-red); }

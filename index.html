@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniplays - Onde a Tela nos Une</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #000; color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* 🎯 CORREÇÃO DO GRADIENTE APLICADA AQUI */
+        .text-gradient-red { 
+            background: linear-gradient(to right, #ff0000, #cc0000); 
+            -webkit-background-clip: text; 
+            background-clip: text; /* ✅ Blindagem de compatibilidade */
+            -webkit-text-fill-color: transparent; 
+        }
+        
+        .section-divider { border-bottom: 1px solid #111; padding-bottom: 80px; margin-bottom: 80px; }
+        .feature-card { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 2rem; padding: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <header class="p-4 flex justify-between items-center sticky top-0 bg-black/95 backdrop-blur-md z-50 border-b border-zinc-900">
+        <div class="flex items-center gap-3">
+            <img src="logo_icone.png" alt="Uniplays" class="w-10 h-10">
+            <span class="text-2xl font-black italic tracking-tighter uppercase"><span class="text-red-600">uni</span>plays</span>
+        </div>
+        <nav class="hidden lg:flex space-x-6 text-[10px] font-black uppercase tracking-widest text-zinc-500">
+            <a href="#home" class="hover:text-white transition-colors">Home</a>
+            <a href="#lupa" class="hover:text-white transition-colors">Busca</a>
+            <a href="#notificacoes" class="hover:text-white transition-colors">Notificações</a>
+            <a href="#perfil" class="hover:text-white transition-colors">Perfil</a>
+            <a href="#comunidade" class="text-red-600 font-bold">Comunidade</a>
+            <a href="#suporte" class="hover:text-white transition-colors">Suporte</a>
+        </nav>
+    </header>
+
+    <section id="home" class="py-24 px-6 text-center relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h1 class="text-6xl md:text-8xl font-black italic uppercase leading-none mb-8">
+                A distância separa, <br> <span class="text-gradient-red text-4xl md:text-7xl">mas a tela nos une.</span>
+            </h1>
+            <p class="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto">
+                Assista junto com quem você ama. Amigos, família ou aquele alguém especial... O Uniplays transforma vídeos em encontros reais.
+            </p>
+            
+            <div class="flex justify-center items-center gap-6 mb-16">
+                <a href="#" class="transition-transform hover:scale-105">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="h-12" alt="Disponível no Google Play">
+                </a>
+                <a href="#" class="transition-transform hover:scale-105">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" class="h-12" alt="Baixar na App Store">
+                </a>
+            </div>
+            
+            <div class="rounded-[3rem] overflow-hidden border border-zinc-800 shadow-2xl bg-zinc-950 max-w-4xl mx-auto">
+                <img src="imagem-para-do-topo-site.png" alt="Interface Uniplays" class="w-full h-auto object-cover">
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-6xl mx-auto px-6">
+
+        <div class="section-divider grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-black italic uppercase mb-6 text-red-600">Home: <span class="text-white">Seu Cinema</span></h2>
+                <p class="text-zinc-500 leading-relaxed italic">Visual premium inspirado nos grandes streamings. Navegação fluida por categorias e o Carrossel VIP com os melhores lançamentos do dia.</p>
+            </div>
+            <div class="flex justify-center">
+                <div class="feature-card aspect-[9/16] w-full max-w-[270px] overflow-hidden shadow-xl shadow-red-600/5">
+                    <img src="home.jpg" class="w-full h-full object-cover rounded-xl" alt="App Home">
+                </div>
+            </div>
+        </div>
+
+        <div id="lupa" class="section-divider grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 flex justify-center">
+                <div class="feature-card aspect-[9/16] w-full max-w-[270px] overflow-hidden shadow-xl shadow-zinc-900/5">
+                    <img src="lupa.jpg" class="w-full h-full object-cover rounded-xl" alt="App Busca">
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="text-4xl font-black italic uppercase mb-6 text-red-600">Lupa: <span class="text-white">Busca VIP</span></h2>
+                <p class="text-zinc-500 leading-relaxed italic">Encontre qualquer conteúdo por tags ou títulos. Nosso algoritmo organiza o que está "Trending" para você não perder tempo procurando.</p>
+            </div>
+        </div>
+
+        <div id="notificacoes" class="section-divider text-center relative">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <h2 class="text-4xl font-black italic uppercase mb-6 relative z-10">Mural de <span class="text-red-600">Avisos</span> VIP</h2>
+            <p class="text-zinc-500 max-w-2xl mx-auto mb-8 relative z-10">Saiba quem te mencionou, novos vídeos e atualizações. Nosso sistema avisa e você foca na diversão.</p>
+            <div class="flex justify-center relative z-10">
+                <div class="feature-card aspect-[9/16] w-full max-w-[270px] overflow-hidden shadow-2xl shadow-red-950/20 ring-2 ring-red-900/30">
+                    <img src="notificacao.jpg" class="w-full h-full object-cover rounded-xl" alt="Mural Notificações Uniplays">
+                </div>
+            </div>
+        </div>
+
+        <div id="perfil" class="section-divider grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-black italic uppercase mb-6 text-red-600">Perfil: <span class="text-white">Dashboard</span></h2>
+                <p class="text-zinc-500 leading-relaxed italic">Sua bio, seu avatar e sua coleção. Salve seus vídeos favoritos e personalize sua identidade no ecossistema.</p>
+            </div>
+            <div class="flex justify-center">
+                <div class="feature-card aspect-[9/16] w-full max-w-[270px] overflow-hidden shadow-xl shadow-zinc-900/5">
+                    <img src="perfil-galerias-video-salvo.jpg" class="w-full h-full object-cover rounded-xl" alt="App Perfil">
+                </div>
+            </div>
+        </div>
+
+        <div id="comunidade" class="py-20 px-10 bg-red-600 rounded-[4rem] text-black mb-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-6xl font-black italic uppercase mb-6">A Cereja <br> do Bolo.</h2>
+                    <p class="text-black font-bold text-lg leading-relaxed mb-6">Nosso Modal de Comunidade é único. Responda com swipe, mencione usuários e viva o vídeo com seus amigos em tempo real.</p>
+                    <div class="bg-black text-white p-4 rounded-2xl inline-block font-black italic uppercase">Social Chat V1</div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="bg-black/20 p-4 rounded-[3rem] border border-black/10 aspect-[9/16] w-full max-w-[280px] overflow-hidden">
+                        <img src="tela-comunidade-com-chat.jpg" class="w-full h-full object-cover rounded-[2rem]" alt="Chat Real Uniplays">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-24 text-center">
+            <div class="p-6 border border-zinc-900 rounded-3xl">
+                <h4 class="font-black uppercase text-red-600 mb-4 tracking-widest">Classificação</h4>
+                <p class="text-xs text-zinc-500 italic">Recomendado para +14 anos ou menores com permissão dos pais.</p>
+            </div>
+            <div class="p-6 border border-zinc-900 rounded-3xl">
+                <h4 class="font-black uppercase text-red-600 mb-4 tracking-widest">App Gratuito</h4>
+                <p class="text-xs text-zinc-500 italic">Totalmente grátis. Futuramente aceitaremos doações e anúncios para manutenção.</p>
+            </div>
+            <div class="p-6 border border-zinc-900 rounded-3xl">
+                <h4 class="font-black uppercase text-red-600 mb-4 tracking-widest">Conteúdo</h4>
+                <p class="text-xs text-zinc-500 italic">Vídeos do YouTube. Respeitamos todos os direitos autorais da plataforma.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="suporte" class="bg-zinc-950 py-20 px-6 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+                <div>
+                    <img src="logo_icone.png" class="w-12 mb-6 mx-auto md:mx-0" alt="Logo">
+                    <p class="text-[10px] text-zinc-700 font-black uppercase tracking-[0.4em]">Uniplays Entertainment Network</p>
+                </div>
+                <div class="flex gap-10 text-[10px] font-black uppercase tracking-widest text-zinc-500">
+                    <a href="politica.html" class="hover:text-red-600 transition-colors">Privacidade & Termos</a>
+                    <a href="suporte.html" class="hover:text-red-600 transition-colors">Suporte</a>
+                </div>
+            </div>
+            <p class="text-center mt-20 text-zinc-800 text-[9px] font-bold uppercase tracking-[0.5em]">© 2026 Desenvolvido por Wendell Mark - Barueri/SP</p>
+        </div>
+    </footer>
+
+</body>
+</html>
