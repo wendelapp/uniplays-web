@@ -7,7 +7,7 @@
 
 body {
     background-color: var(--dark-bg);
-    color: white;
+    color: rgb(227, 225, 225);
 }
 
 .text-red-primary { color: var(--primary-red); }
