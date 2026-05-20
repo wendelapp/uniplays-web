@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniplays - Redefinir Senha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="logo_icone.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+
+    <div class="max-w-md w-full bg-zinc-950 border border-zinc-900 rounded-[2.5rem] p-8 shadow-2xl">
+        <div class="flex justify-center items-center gap-3 mb-8">
+            <img src="logo_icone.png" alt="Uniplays" class="w-12 h-12">
+            <span class="text-3xl font-black italic tracking-tighter uppercase"><span class="text-red-600">uni</span>plays</span>
+        </div>
+
+        <h1 id="status-title" class="text-xl font-black uppercase text-white mb-4">Verificando Link...</h1>
+        <p id="status-desc" class="text-zinc-500 text-sm leading-relaxed mb-6">
+            Aguarde um instante enquanto localizamos o seu aplicativo Uniplays para redefinir sua senha.
+        </p>
+
+        <div id="loading-spinner" class="flex justify-center my-6">
+            <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-red-600"></div>
+        </div>
+
+        <a id="redirect-btn" href="#" class="hidden inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-black uppercase tracking-wider text-xs px-8 py-4 rounded-xl transition-all duration-300 w-full shadow-lg shadow-red-600/10">
+            Abrir no Aplicativo
+        </a>
+    </div>
+
+    <script>
+        function processarRedirecionamento() {
+            // 1. Pega os parâmetros que o Supabase joga depois da # (hash) ou da ? (search)
+            const urlHash = window.location.hash;
+            const urlSearch = window.location.search;
+            
+            // Une tudo para não perder nenhum token
+            const parametros = urlHash || urlSearch;
+
+            if (!parametros || (!parametros.includes('access_token') && !parametros.includes('token'))) {
+                document.getElementById('status-title').innerText = "Link Inválido";
+                document.getElementById('status-desc').innerText = "Este link de recuperação expirou ou está incorreto. Solicite uma nova redefinição de senha pelo aplicativo.";
+                document.getElementById('loading-spinner').classList.add('hidden');
+                return;
+            }
+
+            // 2. Configura o Deep Link focado no seu ambiente de teste do EXPO GO
+            // ⚠️ LEMBRETE: Altere o IP abaixo para o IP atual da sua máquina se ele mudar!
+            const seuIPLocal = "192.168.1.5:8081"; // Troque pelo IP que aparece no seu terminal do Expo
+            const portaExpo = "8081";
+            
+            // Monta o link que o celular entende para abrir o Expo Go direto na rota certa
+            const expoDeepLink = `exp://${seuIPLocal}:${portaExpo}/--/reset-password${parametros}`;
+
+            // Atualiza a tela informando o usuário
+            document.getElementById('status-title').innerText = "Redirecionando...";
+            document.getElementById('status-desc').innerText = "Se o seu aplicativo não abrir automaticamente em instantes, clique no botão abaixo.";
+            document.getElementById('loading-spinner').classList.add('hidden');
+            
+            // Ativa e configura o botão caso o redirecionamento automático falhe
+            const btn = document.getElementById('redirect-btn');
+            btn.href = expoDeepLink;
+            btn.classList.remove('hidden');
+
+            // 3. Tenta chutar o usuário para dentro do App automaticamente
+            window.location.href = expoDeepLink;
+        }
+
+        // Executa a função assim que a página carrega
+        window.onload = processarRedirecionamento;
+    </script>
+
+</body>
+</html>
