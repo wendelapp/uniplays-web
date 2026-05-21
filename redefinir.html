@@ -55,7 +55,8 @@
             const portaExpo = "8081";
             
             // Monta o link que o celular entende para abrir o Expo Go direto na rota certa
-            const expoDeepLink = `exp://${seuIPLocal}:${portaExpo}/--/reset-password${parametros}`;
+            // ⚠️ CORREÇÃO: Mudamos /--/reset-password para /--/auth/new-password
+const expoDeepLink = `exp://${seuIPLocal}:${portaExpo}/--/auth/new-password${parametros}`;
 
             // Atualiza a tela informando o usuário
             document.getElementById('status-title').innerText = "Redirecionando...";
