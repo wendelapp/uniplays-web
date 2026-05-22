@@ -35,45 +35,26 @@
 
     <script>
         function processarRedirecionamento() {
-            // 1. Pega os parâmetros que o Supabase joga depois da # (hash) ou da ? (search)
-            const urlHash = window.location.hash;
-            const urlSearch = window.location.search;
-            
-            // Une tudo para não perder nenhum token
-            const parametros = urlHash || urlSearch;
+    const urlHash = window.location.hash;
+    const urlSearch = window.location.search;
+    const parametros = urlHash || urlSearch;
 
-            if (!parametros || (!parametros.includes('access_token') && !parametros.includes('token'))) {
-                document.getElementById('status-title').innerText = "Link Inválido";
-                document.getElementById('status-desc').innerText = "Este link de recuperação expirou ou está incorreto. Solicite uma nova redefinição de senha pelo aplicativo.";
-                document.getElementById('loading-spinner').classList.add('hidden');
-                return;
-            }
+    if (!parametros) {
+        // Trata erro se não houver token
+        return;
+    }
 
-            // 2. Configura o Deep Link focado no seu ambiente de teste do EXPO GO
-            // ⚠️ LEMBRETE: Altere o IP abaixo para o IP atual da sua máquina se ele mudar!
-            const seuIPLocal = "192.168.1.5"; // Troque pelo IP que aparece no seu terminal do Expo
-            const portaExpo = "8081";
-            
-            // Monta o link que o celular entende para abrir o Expo Go direto na rota certa
-            // ⚠️ CORREÇÃO: Mudamos /--/reset-password para /--/auth/new-password
-const expoDeepLink = `exp://${seuIPLocal}:${portaExpo}/--/auth/new-password${parametros}`;
+    // 🎯 Como você está no Development Build, usamos o esquema oficial!
+    const appDeepLink = `uniplays://auth/new-password${parametros}`;
 
-            // Atualiza a tela informando o usuário
-            document.getElementById('status-title').innerText = "Redirecionando...";
-            document.getElementById('status-desc').innerText = "Se o seu aplicativo não abrir automaticamente em instantes, clique no botão abaixo.";
-            document.getElementById('loading-spinner').classList.add('hidden');
-            
-            // Ativa e configura o botão caso o redirecionamento automático falhe
-            const btn = document.getElementById('redirect-btn');
-            btn.href = expoDeepLink;
-            btn.classList.remove('hidden');
+    // Atualiza o botão da tela do site caso o redirecionamento falhe
+    document.getElementById('redirect-btn').href = appDeepLink;
+    document.getElementById('redirect-btn').classList.remove('hidden');
 
-            // 3. Tenta chutar o usuário para dentro do App automaticamente
-            window.location.href = expoDeepLink;
-        }
-
-        // Executa a função assim que a página carrega
-        window.onload = processarRedirecionamento;
+    // Força o celular a abrir o aplicativo passando o token!
+    window.location.href = appDeepLink;
+}
+window.onload = processarRedirecionamento;
     </script>
 
 </body>
