@@ -34,28 +34,36 @@
     </div>
 
     <script>
-        function processarRedirecionamento() {
-    const urlHash = window.location.hash;
-    const urlSearch = window.location.search;
-    const parametros = urlHash || urlSearch;
+    function processarRedirecionamento() {
+        // Pega os parâmetros da URL
+        const hash = window.location.hash;
+        const search = window.location.search;
+        
+        // Prioriza o hash (padrão do Supabase para tokens)
+        const params = hash ? hash : search;
 
-    if (!parametros) {
-        // Trata erro se não houver token
-        return;
+        if (!params) {
+            document.getElementById('status-title').innerText = "Erro de Link";
+            document.getElementById('status-desc').innerText = "O link de redefinição está incompleto.";
+            document.getElementById('loading-spinner').classList.add('hidden');
+            return;
+        }
+
+        // Monta o Deep Link
+        const appDeepLink = `uniplays://auth/new-password${params}`;
+
+        // Configura o botão
+        const btn = document.getElementById('redirect-btn');
+        btn.href = appDeepLink;
+        btn.classList.remove('hidden');
+        document.getElementById('loading-spinner').classList.add('hidden');
+
+        // Dispara apenas UMA VEZ
+        window.location.replace(appDeepLink);
     }
-
-    // 🎯 Como você está no Development Build, usamos o esquema oficial!
-    const appDeepLink = `uniplays://auth/new-password${parametros}`;
-
-    // Atualiza o botão da tela do site caso o redirecionamento falhe
-    document.getElementById('redirect-btn').href = appDeepLink;
-    document.getElementById('redirect-btn').classList.remove('hidden');
-
-    // Força o celular a abrir o aplicativo passando o token!
-    window.location.href = appDeepLink;
-}
-window.onload = processarRedirecionamento;
-    </script>
+    
+    window.onload = processarRedirecionamento;
+</script>
 
 </body>
 </html>
