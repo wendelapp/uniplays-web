@@ -34,7 +34,7 @@
             
             <a href="#perfil" class="hover:text-white transition-colors">Perfil</a>
             <a href="#comunidade" class="hover:text-white transition-colors">Comunidade</a>
-            <a href="#shorts" class="text-red-600 font-bold">Shorts & Games</a>
+            <a href="#reels" class="text-red-600 font-bold">Reels & Games</a>
             <a href="#suporte" class="hover:text-white transition-colors">Suporte</a>
         </nav>
     </header>
@@ -58,8 +58,9 @@
                 </a>
             </div>
             
+            <!-- 🔥 IMAGEM DE DESTAQUE TROCADA PARA home.jpg -->
             <div class="rounded-[3rem] overflow-hidden border border-zinc-800 shadow-2xl bg-zinc-950/80 max-w-4xl mx-auto">
-                <img src="topo-site.png" alt="Interface Uniplays" class="w-full h-auto object-cover opacity-90">
+                <img src="home.jpg" alt="Interface Uniplays" class="w-full h-auto object-cover opacity-90">
             </div>
         </div>
     </section>
@@ -128,10 +129,9 @@
             </div>
         </div>
 
-        <!-- NOVO BLOCO: SHORTS, GAMES E FILMES (DUAS TELAS LADO A LADO) -->
-        <div id="shorts" class="section-divider grid md:grid-cols-2 gap-12 items-center">
+        <div id="reels" class="section-divider grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-4xl font-black italic uppercase mb-6 text-red-600">Explorar Shorts: <span class="text-white">Games & Filmes</span></h2>
+                <h2 class="text-4xl font-black italic uppercase mb-6 text-red-600">Explorar Reels: <span class="text-white">Games & Filmes</span></h2>
                 <p class="text-zinc-500 leading-relaxed italic mb-6">Descubra vídeos em alta, novidades rápidas e curiosidades imperdíveis do mundo dos games e do cinema. Conteúdo dinâmico direto na palma da sua mão.</p>
                 <div class="inline-block bg-zinc-900 border border-zinc-800 text-red-500 text-xs font-black uppercase px-4 py-2 rounded-xl tracking-widest">
                     Trending & Curiosidades
@@ -139,10 +139,29 @@
             </div>
             <div class="flex justify-center gap-4">
                 <div class="feature-card aspect-[9/16] w-full max-w-[220px] overflow-hidden shadow-xl shadow-zinc-900/10">
-                    <img src="shorts-home.jpg" class="w-full h-full object-cover rounded-xl" alt="Play Shorts Games">
+                    <img src="shorts-home.jpg" class="w-full h-full object-cover rounded-xl" alt="Play Reels Games">
                 </div>
                 <div class="feature-card aspect-[9/16] w-full max-w-[220px] overflow-hidden shadow-xl shadow-zinc-900/10">
-                    <img src="play-short.jpg" class="w-full h-full object-cover rounded-xl" alt="Shorts Filmes">
+                    <img src="play-short.jpg" class="w-full h-full object-cover rounded-xl" alt="Reels Filmes">
+                </div>
+            </div>
+        </div>
+
+        <!-- 🔥 BLOCO DESTAQUES COM ASPECT RATIO 4:3 (FORMATO INSTAGRAM) -->
+        <div id="destaques" class="section-divider">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black italic uppercase mb-4 text-red-600">POSTS EM <span class="text-white">DESTAQUE</span></h2>
+                <p class="text-zinc-500 italic">As publicações e novidades que estão bombando no feed do Uniplays.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+                <div class="feature-card aspect-[4/3] w-full max-w-[320px] overflow-hidden shadow-xl shadow-zinc-900/10 hover:scale-[1.03] transition-transform duration-300">
+                    <img src="post-1.png" class="w-full h-full object-cover rounded-xl" alt="Postagem 1">
+                </div>
+                <div class="feature-card aspect-[4/3] w-full max-w-[320px] overflow-hidden shadow-xl shadow-zinc-900/10 hover:scale-[1.03] transition-transform duration-300">
+                    <img src="post-2.png" class="w-full h-full object-cover rounded-xl" alt="Postagem 2">
+                </div>
+                <div class="feature-card aspect-[4/3] w-full max-w-[320px] overflow-hidden shadow-xl shadow-zinc-900/10 hover:scale-[1.03] transition-transform duration-300">
+                    <img src="post-3.png" class="w-full h-full object-cover rounded-xl" alt="Postagem 3">
                 </div>
             </div>
         </div>
